@@ -6,5 +6,5 @@ Fill this in before collecting responses.
 
 | Folder | Model (exact name and version) | Accessed through | Date | Settings |
 |---|---|---|---|---|
-| model-1 | | | | Fresh chat per prompt, no custom instructions or memory |
-| model-2 | | | | Fresh chat per prompt, no custom instructions or memory |
+| model-1 | GPT-6 | ChatGPT web, free tier | 2026-10-12 | Temporary chat, no memory, no custom instructions; fresh chat per prompt |
+| model-2 | Qwen-3.7 plus | Qwen Chat web (chat.qwen.ai), Qwen family | 2026-10-12 | No memory, no custom instructions, thinking mode off; fresh chat per prompt |
