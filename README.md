@@ -4,6 +4,8 @@ A small, reproducible evaluation of how two AI models answer Python coding quest
 
 Every coding response is also **run against hidden tests**, so correctness is verified by execution, not just judged by reading.
 
+The full plan, phase by phase, is in [`docs/BLUEPRINT.md`](docs/BLUEPRINT.md).
+
 ## What it covers
 
 | Skill | Where it shows |
@@ -53,7 +55,7 @@ pip install -r requirements.txt
 
 # 1. Save each answer as responses/raw/<model>/<prompt_id>.md, then:
 python scripts/collect_responses.py
-# 2. Run the hidden tests
+# 2. Run the hidden tests (also checks your gold rewrites in gold/)
 python scripts/run_tests.py
 # 3. Build the blind review sheets, then grade in ratings/ratings.csv and ratings/preferences.csv
 python scripts/make_review.py
@@ -68,9 +70,10 @@ python scripts/summarize.py
 ## Layout
 
 ```
+docs/           the blueprint
 prompts/        the 18 prompts (prompts.jsonl, and PROMPTS.md to read)
 tests/prompts/  hidden tests, one file per coding prompt
-responses/      raw answers (raw/<model>/<prompt_id>.md) and responses.jsonl
+responses/      MODELS.md, raw answers (raw/<model>/<prompt_id>.md) and responses.jsonl
 review/         blind review sheets, and review/regrade/
 ratings/        grades, preferences, the blind key, and re-grades
 gold/           ideal rewrites of the weakest responses

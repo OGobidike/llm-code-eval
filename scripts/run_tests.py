@@ -4,7 +4,8 @@ Model-written code runs on your machine, in a temporary folder, with a time limi
 Read a response before running it if anything in it looks like it touches files or the network.
 
 Usage: python scripts/run_tests.py
-Writes results/test_results.csv.
+Writes results/test_results.csv, plus results/gold_test_results.csv for your
+gold rewrites in gold/<prompt_id>.md.
 """
 import csv
 import shutil
@@ -16,6 +17,7 @@ from pathlib import Path
 
 from common import (
     RESULTS,
+    ROOT,
     extract_solution,
     function_name,
     load_prompts,
@@ -58,6 +60,30 @@ def run_one(prompt_id, response_text):
         return {"status": "pass" if passed == total else "fail", "passed": passed, "total": total}
 
 
+def write_results(path, rows):
+    RESULTS.mkdir(exist_ok=True)
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["prompt_id", "model", "status", "passed", "total"])
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"wrote {path.relative_to(ROOT)}")
+
+
+def run_gold(prompts):
+    """Your gold rewrites must pass the same hidden tests."""
+    rows = []
+    for path in sorted((ROOT / "gold").glob("*.md")):
+        prompt_id = path.stem
+        if prompt_id not in prompts or not prompts[prompt_id]["tested"]:
+            continue
+        result = run_one(prompt_id, path.read_text(encoding="utf-8"))
+        rows.append({"prompt_id": prompt_id, "model": "gold", **result})
+        print(f"{prompt_id:8} {'gold':20} {result['status']:8} "
+              f"{result['passed']}/{result['total']}")
+    if rows:
+        write_results(RESULTS / "gold_test_results.csv", rows)
+
+
 def main():
     prompts = load_prompts()
     rows = []
@@ -70,13 +96,8 @@ def main():
             print(f"{prompt_id:8} {r['model']:20} {result['status']:8} "
                   f"{result['passed']}/{result['total']}")
 
-    RESULTS.mkdir(exist_ok=True)
-    out = RESULTS / "test_results.csv"
-    with open(out, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["prompt_id", "model", "status", "passed", "total"])
-        writer.writeheader()
-        writer.writerows(rows)
-    print(f"\nwrote {out.relative_to(out.parents[1])}")
+    write_results(RESULTS / "test_results.csv", rows)
+    run_gold(prompts)
 
 
 if __name__ == "__main__":
