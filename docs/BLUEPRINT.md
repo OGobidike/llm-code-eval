@@ -26,7 +26,7 @@ The plan for this project, from an empty GitHub repo to a finished portfolio pie
 
 **Goal:** 36 answers, 18 prompts × 2 models, saved exactly as written.
 
-- [ ] Choose two models you can use for free, for example two different chat assistants. Record each model's exact name and version, the date, and how you accessed it in `responses/MODELS.md`.
+- [ ] Choose two models you can use for free, for example two different chat assistants. **Not Claude:** you use Claude day to day, so it's excluded to keep your chat history and memory out of the evaluation. Record each model's exact name and version, the date, and how you accessed it in `responses/MODELS.md`.
 - [ ] Make the test fair. Use a **fresh chat for every prompt**, with no custom instructions, memory or personas turned on. A persona like Opy would change the answers.
 - [ ] Paste each prompt from `PROMPTS.md` exactly. Don't add hints, and don't regenerate to get a better answer.
 - [ ] Use the chat's **copy** button, so the code fences (```` ``` ````) come along, and save each answer as `responses/raw/<model>/<prompt_id>.md`. Use simple folder names, like `responses/raw/model-1/impl-01.md`.
