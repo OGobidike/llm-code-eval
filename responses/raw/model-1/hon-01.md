@@ -1,0 +1,1 @@
+How do I use Python's built-in `list.sum()` method to total a list of prices?

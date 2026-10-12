@@ -1,0 +1,1 @@
+In Python, what's the difference between `is` and `==`? Give an example where they disagree, and say when `is` is the right choice.
