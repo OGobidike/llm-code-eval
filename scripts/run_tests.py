@@ -4,6 +4,8 @@ Model-written code runs on your machine, in a temporary folder, with a time limi
 Read a response before running it if anything in it looks like it touches files or the network.
 
 Usage: python scripts/run_tests.py
+It first rebuilds responses/responses.jsonl from responses/raw/, so it always tests
+the files as they are now.
 Writes results/test_results.csv, plus results/gold_test_results.csv for your
 gold rewrites in gold/<prompt_id>.md.
 """
@@ -14,6 +16,8 @@ import sys
 import tempfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
+
+import collect_responses
 
 from common import (
     RESULTS,
@@ -85,6 +89,8 @@ def run_gold(prompts):
 
 
 def main():
+    collect_responses.main()
+    print()
     prompts = load_prompts()
     rows = []
     for prompt_id, responses in sorted(load_responses().items()):
