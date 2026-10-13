@@ -1,11 +1,15 @@
 """Pick 5 prompts to grade a second time, blind, with A and B swapped.
 
 Run it at least a day after your first pass, and don't look at your first grades.
-Usage: python scripts/make_regrade.py
+Usage: python scripts/make_regrade.py [path to the blind key]
+The script reads the key for you, so the key can stay outside the folder, unopened,
+until the summary. Without a path it reads ratings/blind_key.csv.
 Writes review/regrade/<prompt_id>.md and blank ratings/regrade_*.csv files.
 """
 import csv
 import random
+import sys
+from pathlib import Path
 
 from common import (
     PREFERENCE_FIELDS,
@@ -23,7 +27,11 @@ SAMPLE_SIZE = 5
 
 
 def main():
-    with open(RATINGS / "blind_key.csv", encoding="utf-8") as f:
+    key_path = Path(sys.argv[1]).expanduser() if len(sys.argv) > 1 else RATINGS / "blind_key.csv"
+    if not key_path.exists():
+        sys.exit(f"No blind key at {key_path}. Give the path where you keep it, for example:\n"
+                 "  python scripts/make_regrade.py ~/blind_key.csv")
+    with open(key_path, encoding="utf-8") as f:
         key = {(r["prompt_id"], r["slot"]): r["model"] for r in csv.DictReader(f)}
     prompts = load_prompts()
     responses = load_responses()
