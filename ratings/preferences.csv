@@ -1,5 +1,4 @@
 prompt_id,preferred,strength,rationale
-prompt_id,preferred,strength,rationale
 amb-01,A,clear,"A is my choice, clearly. A opens by saying that cleaning up a phone number ""can mean many different things"", it also states its assumptions and says it returns 10-digit US/Canada numbers, while B never flags the ambiguity and never says what it returns. Both let string-only inputs like ""abc"" through without a warning, but A at least catches empty input. A is very wordy and offers two versions, but its handling of the vague request decides it in spite of this."
 exp-01,,,
 exp-02,,,
