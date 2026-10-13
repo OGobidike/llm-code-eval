@@ -59,6 +59,7 @@ python scripts/collect_responses.py
 python scripts/run_tests.py
 # 3. Build the blind review sheets, then grade in ratings/ratings.csv and ratings/preferences.csv
 python scripts/make_review.py
+python scripts/check_sheet.py amb-01   # check each graded sheet before committing it
 # 4. A day later: re-grade the sample in ratings/regrade_*.csv
 python scripts/make_regrade.py
 # 5. Summarize

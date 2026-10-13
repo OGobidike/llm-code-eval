@@ -63,7 +63,8 @@ The plan for this project, from an empty GitHub repo to a finished portfolio pie
 - [ ] Fill `ratings/ratings.csv`: five scores per response, 1–5. Leave code quality or explanation blank only where the guidelines allow it.
 - [ ] Fill `ratings/preferences.csv` with A, B or tie, a strength, and a 2–4 sentence rationale that leads with the deciding factor.
 - [ ] Use `notes` for anything surprising, like a test you think is wrong.
-- [ ] Run `python scripts/summarize.py`. It checks your files and lists anything invalid. Fix those, then look at the **calibration** list: each place your grade and the tests disagree needs a note in `notes`.
+- [ ] After each sheet, run `python scripts/check_sheet.py <prompt_id>`. It catches a missing score, a split note or a duplicate row before you commit.
+- [ ] Run `python scripts/summarize.py`. It checks all 18 sheets and lists anything invalid. While the blind key is out of the folder, it stops after the check; the full summary, with the **calibration** list, comes in Phase 6.
 - [ ] Commit: "Grade all 18 pairs".
 
 Work in blocks of about 6 sheets, with breaks. Tired grading is inconsistent grading, and the re-grade will show it.
@@ -89,6 +90,7 @@ Work in blocks of about 6 sheets, with breaks. Tired grading is inconsistent gra
 - [ ] Grade `review/regrade/` into `ratings/regrade_ratings.csv` and `ratings/regrade_preferences.csv`.
 - [ ] Put `blind_key.csv` back in `ratings/`, then run `python scripts/summarize.py`.
 - [ ] Read `results/summary.md`. Wherever the two passes disagree, write one sentence on why. That reflection is portfolio material too.
+- [ ] For each line in the **calibration** list (your grade and the hidden tests disagree), add a note in `ratings/ratings.csv` saying which one was right.
 - [ ] Commit: "Add blind re-grade and summary".
 
 **Done when:** `results/summary.md` includes the consistency section.

@@ -14,12 +14,19 @@ STRENGTHS = {"slight", "clear", "strong"}
 
 
 def read(name):
-    return pd.read_csv(RATINGS / name, dtype=str, keep_default_na=False)
+    try:
+        return pd.read_csv(RATINGS / name, dtype=str, keep_default_na=False)
+    except pd.errors.ParserError as err:
+        sys.exit(f"{name} can't be read: {err}\nA comma is probably splitting a note or rationale; "
+                 "quote the text, with no space before the opening quote.")
 
 
 def check_ratings(df, name):
     problems = []
     for _, row in df.iterrows():
+        if row["prompt_id"] == "prompt_id":
+            problems.append(f"{name}: a second header line; delete it")
+            continue
         where = f"{name} {row['prompt_id']} {row['slot']}"
         for col in SCORES:
             value = row[col].strip()
@@ -33,6 +40,9 @@ def check_ratings(df, name):
 def check_preferences(df, name):
     problems = []
     for _, row in df.iterrows():
+        if row["prompt_id"] == "prompt_id":
+            problems.append(f"{name}: a second header line; delete it")
+            continue
         where = f"{name} {row['prompt_id']}"
         preferred, strength = row["preferred"].strip(), row["strength"].strip()
         if preferred not in {"A", "B", "tie"}:
@@ -63,12 +73,16 @@ def table(df):
 
 
 def main():
-    key = read("blind_key.csv")
     ratings, prefs = read("ratings.csv"), read("preferences.csv")
     problems = check_ratings(ratings, "ratings.csv") + check_preferences(prefs, "preferences.csv")
     if problems:
         print("Fix these first:\n  " + "\n  ".join(problems))
         sys.exit(1)
+    if not (RATINGS / "blind_key.csv").exists():
+        print("All grades are valid. The summary needs ratings/blind_key.csv, which stays out of "
+              "the folder until Phase 6.")
+        return
+    key = read("blind_key.csv")
 
     out = ["# Results", ""]
     ratings = to_numbers(ratings).merge(key, on=["prompt_id", "slot"])

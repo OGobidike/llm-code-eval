@@ -18,7 +18,6 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import collect_responses
-
 from common import (
     RESULTS,
     ROOT,
