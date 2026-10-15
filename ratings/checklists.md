@@ -156,4 +156,34 @@ Hidden tests: pass 3/3
 
 ---
 
+# 6. fix-02
+
+## fix-02
+
+Requirements from the prompt:
+- Explains why the second call still contains the first call's tag
+- Fixes `add_tag` so each call without `tags` starts from an empty list
+
+### A
+Hidden tests: pass 2/2
+[x] Finds the real bug (the cause, not the symptom): identifies that the default argument is evaluated only once, when the function is defined
+[x] Explains accurately why it happens: explains that every call without `tags` reuses the same list, so earlier tags persist
+[x] Gives the fixed function: uses `tags=None` as the default and creates a new list inside when `tags is None`
+[x] Each call without `tags` starts empty: a new list is created on each such call
+[x] Keeps the function name and signature: yes
+[x] Adds no new bug: checks `is None`, so a caller's own empty list is still used
+[x] Stays concise: no padding, no tangents: very concise and easy to follow
+
+### B
+Hidden tests: pass 2/2
+[x] Finds the real bug (the cause, not the symptom): identifies that the default argument is evaluated only once, when the function is defined
+[x] Explains accurately why it happens: explains that every call without `tags` reuses the same list, so earlier tags persist
+[x] Gives the fixed function: uses `tags=None` as the default and creates a new list inside when `tags is None`
+[x] Each call without `tags` starts empty: a new list is created on each such call
+[x] Keeps the function name and signature: yes
+[x] Adds no new bug: checks `is None`, so a caller's own empty list is still used
+[x] Stays concise: no padding, no tangents: very concise and easy to follow
+
+---
+
 

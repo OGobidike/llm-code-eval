@@ -9,8 +9,8 @@ exp-03,A,5,5,4,4,4,"Clear explanation of identity vs equality, but very wordy wi
 exp-03,B,5,5,4,4,4,"Clear explanation of identity vs equality with the True/False output shown, but very wordy with much padding"
 fix-01,A,5,5,5,5,5,"Finds the ZeroDivisionError on an empty list; clean, minimal fix"
 fix-01,B,5,5,5,5,5,"Finds the ZeroDivisionError on an empty list; clean, minimal fix"
-fix-02,A,,,,,,
-fix-02,B,,,,,,
+fix-02,A,5,5,5,5,5,"Explains the default list is created once at definition; standard tags=None fix, concise"
+fix-02,B,5,5,5,5,5,"Explains the default list is created once at definition; standard tags=None fix, concise"
 fix-03,A,,,,,,
 fix-03,B,,,,,,
 fix-04,A,,,,,,

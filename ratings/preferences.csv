@@ -4,7 +4,7 @@ exp-01,tie,,"Tie. Both explain correctly that .sort() sorts in place and returns
 exp-02,B,clear,"B is preferred, clearly. Both correctly give the complexity as O(|b| + |a|^2), naming their variables, and both show a faster version, but only B explains why the faster version works and ends with a practical takeaway. A is more concise, but leaves the user without the reasoning behind its fix."
 exp-03,tie,,"Tie. Both explain that is checks identity and == checks equality, give a correct example where they disagree, and say when is is the right choice. Both are padded well beyond what the question needs, so neither would serve the user better."
 fix-01,tie,,"Tie. Both identify that an empty list makes len(nums) zero and raises ZeroDivisionError, add an empty-list check that returns None, and pass all hidden tests. Neither adds anything the other lacks."
-fix-02,,,
+fix-02,tie,,"Tie. Both explain that the default list is created once when the function is defined, so calls without tags share it, and both apply the standard tags=None fix with an is None check. Both pass all hidden tests and are equally concise."
 fix-03,,,
 fix-04,,,
 fix-05,,,
