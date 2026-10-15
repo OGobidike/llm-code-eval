@@ -67,6 +67,34 @@ Requirements from the prompt:
 
 ---
 
+# 3. exp-02
+
+## exp-02
+
+Requirements from the prompt:
+- States the time complexity of `common(a, b)` in Big-O, with its variables named (what n and m stand for)
+- Explains why: walks through what each line of the function costs
+- Answers whether it could be faster, and shows or describes how
+
+### A
+[x] States the complexity, with variables named: states O(n^2) and explains why
+[x] Explains why, line by line: breaks down the cost of each line
+[x] Says whether and how it could be faster: explains how, with an example that uses a second set doesnt walk through line by line
+[x] Gets every technical claim right: no mis-statements about how the operations behave
+[x] Shows a correct, minimal example where it helps: shows that tracking seen output items in a set or dict lowers the complexity
+[ ] Gives the practical takeaway: doesn't explain why the faster version works
+[~] Stays concise: no padding, no tangents: no unnecessary additions
+
+### B
+[x] States the complexity, with variables named: names n and m and gives O(n^2), or O(n + m^2)
+[x] Explains why, line by line: explains that rechecking `out` inside the loop causes the jump in complexity
+[x] Says whether and how it could be faster: explains how, with examples using dictionaries
+[x] Gets every technical claim right: all claims are accurate
+[x] Shows a correct, minimal example where it helps: shows code that brings the time down to O(n)
+[x] Gives the practical takeaway: ends with a thorough explanation
+[x] Stays concise: no padding, no tangents: longer than A, but no padding or tangents
+
+---
 
 
 
