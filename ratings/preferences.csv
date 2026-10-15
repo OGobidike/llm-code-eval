@@ -2,7 +2,7 @@ prompt_id,preferred,strength,rationale
 amb-01,A,clear,"A is my choice, clearly. A opens by saying that cleaning up a phone number ""can mean many different things"", it also states its assumptions and says it returns 10-digit US/Canada numbers, while B never flags the ambiguity and never says what it returns. Both let string-only inputs like ""abc"" through without a warning, but A at least catches empty input. A is very wordy and offers two versions, but its handling of the vague request decides it in spite of this."
 exp-01,tie,,"Tie. Both explain correctly that .sort() sorts in place and returns None, name sorted() as the alternative, and say when to use each. Both are longer than the question needs, so neither would serve the user better."
 exp-02,B,clear,"B is preferred, clearly. Both correctly give the complexity as O(|b| + |a|^2), naming their variables, and both show a faster version, but only B explains why the faster version works and ends with a practical takeaway. A is more concise, but leaves the user without the reasoning behind its fix."
-exp-03,,,
+exp-03,tie,,"Tie. Both explain that is checks identity and == checks equality, give a correct example where they disagree, and say when is is the right choice. Both are padded well beyond what the question needs, so neither would serve the user better."
 fix-01,,,
 fix-02,,,
 fix-03,,,

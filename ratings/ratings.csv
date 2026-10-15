@@ -5,8 +5,8 @@ exp-01,A,5,5,4,4,4,"Explains very well, but two versions offered, quite wordy"
 exp-01,B,5,5,4,4,4,"Very clearly explains the cause and both options; only slightly long"
 exp-02,A,5,5,4,4,4,"Clear line-by-line O(n^2) breakdown and stays concise, but doesn't explain why the faster version works"
 exp-02,B,5,5,4,4,5,"Names the variables, squares the correct list and shows an O(n) fix, but slightly long"
-exp-03,A,,,,,,
-exp-03,B,,,,,,
+exp-03,A,5,5,4,4,4,"Clear explanation of identity vs equality, but very wordy with much padding"
+exp-03,B,5,5,4,4,4,"Clear explanation of identity vs equality with the True/False output shown, but very wordy with much padding"
 fix-01,A,,,,,,
 fix-01,B,,,,,,
 fix-02,A,,,,,,

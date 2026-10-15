@@ -96,6 +96,34 @@ Requirements from the prompt:
 
 ---
 
+# 4. exp-03
+
+## exp-03
+
+Requirements from the prompt:
+- Explains the difference between `is` and `==` (what each one compares)
+- Gives an example where `is` and `==` disagree
+- Says when `is` is the right choice
+
+### A
+[x] Explains the difference (what each compares): explains that `is` checks identity (the same object) and `==` checks equality of contents
+[x] Gives an example where they disagree: a clear example where `a == b` is True but `a is b` is False
+[x] Says when `is` is the right choice: stated clearly
+[x] Gets every technical claim right: no errors found
+[x] Shows a correct, minimal example where it helps: shows when to use each operator
+[x] Gives the practical takeaway: explains the reasoning behind each use
+[ ] Stays concise: no padding, no tangents: very wordy
+
+### B
+[x] Explains the difference (what each compares): explains that `is` checks identity (the same object) and `==` checks equality of contents
+[x] Gives an example where they disagree: a clear example where `a == b` is True but `a is b` is False, with the True/False output shown
+[x] Says when `is` is the right choice: stated clearly
+[x] Gets every technical claim right: no errors found
+[x] Shows a correct, minimal example where it helps: shows when to use each operator
+[x] Gives the practical takeaway: explains the reasoning behind each use
+[ ] Stays concise: no padding, no tangents: very wordy
+
+---
 
 
 
