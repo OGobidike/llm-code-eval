@@ -186,4 +186,32 @@ Hidden tests: pass 2/2
 
 ---
 
+# 7. fix-03
 
+## fix-03
+
+Requirements from the prompt:
+- Explains why the search sometimes never finishes
+- Gives a fixed `binary_search(nums, target)` that returns the index of `target`, or -1 if it's missing
+
+### A
+Hidden tests: pass 7/7
+[x] Finds the real bug (the cause, not the symptom): identifies that `lo = mid` / `hi = mid` never move past mid, so the search range can stop shrinking
+[x] Explains accurately why it loops forever: explains that once the range stops shrinking, the same mid is checked again on every loop
+[x] Gives the fixed function: uses `mid + 1` / `mid - 1`
+[x] Returns -1 when the target is missing:
+[x] Keeps the function name and signature:
+[x] Adds no new bug:
+[x] Stays concise: no padding, no tangents: concise
+
+### B
+Hidden tests: pass 7/7
+[x] Finds the real bug (the cause, not the symptom): identifies that `lo = mid` / `hi = mid` never move past mid, so the search range can stop shrinking
+[x] Explains accurately why it loops forever: explains that once the range stops shrinking, the same mid is checked again on every loop
+[x] Gives the fixed function: uses `mid + 1` / `mid - 1`, with helpful comments explaining each fix
+[x] Returns -1 when the target is missing:
+[x] Keeps the function name and signature:
+[x] Adds no new bug:
+[x] Stays concise: no padding, no tangents: concise
+
+---

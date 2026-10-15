@@ -11,8 +11,8 @@ fix-01,A,5,5,5,5,5,"Finds the ZeroDivisionError on an empty list; clean, minimal
 fix-01,B,5,5,5,5,5,"Finds the ZeroDivisionError on an empty list; clean, minimal fix"
 fix-02,A,5,5,5,5,5,"Explains the default list is created once at definition; standard tags=None fix, concise"
 fix-02,B,5,5,5,5,5,"Explains the default list is created once at definition; standard tags=None fix, concise"
-fix-03,A,,,,,,
-fix-03,B,,,,,,
+fix-03,A,5,5,4,5,5,"Finds that lo = mid / hi = mid stop the range shrinking; correct mid + 1 / mid - 1 fix, concise"
+fix-03,B,5,5,5,5,5,"Finds that lo = mid / hi = mid stop the range shrinking; correct fix with clear comments on each change"
 fix-04,A,,,,,,
 fix-04,B,,,,,,
 fix-05,A,,,,,,
