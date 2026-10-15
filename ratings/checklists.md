@@ -125,6 +125,35 @@ Requirements from the prompt:
 
 ---
 
+# 5. fix-01
 
+## fix-01
+
+Requirements from the prompt:
+- Finds the bug: the cause, not just "it crashes"
+- Explains why it crashes
+- Gives the fixed function: returns the average, and None for an empty list
+
+### A
+Hidden tests: pass 3/3
+[x] Finds the real bug (the cause, not the symptom): identifies that len(nums) is 0 for an empty list, causing a ZeroDivisionError
+[x] Explains accurately why it crashes: explains that an `if not nums` check is needed before dividing
+[x] Gives the fixed function: provides a working fix
+[x] Returns None for an empty list:
+[x] Keeps the function name and signature:
+[x] Adds no new bug:
+[x] Stays concise: no padding, no tangents: stays on task
+
+### B
+Hidden tests: pass 3/3
+[x] Finds the real bug (the cause, not the symptom): identifies that len(nums) is 0 for an empty list, causing a ZeroDivisionError
+[x] Explains accurately why it crashes: explains that an `if not nums` check is needed before dividing
+[x] Gives the fixed function: provides a working fix
+[x] Returns None for an empty list:
+[x] Keeps the function name and signature:
+[x] Adds no new bug:
+[x] Stays concise: no padding, no tangents: stays on task
+
+---
 
 

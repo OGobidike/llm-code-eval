@@ -7,8 +7,8 @@ exp-02,A,5,5,4,4,4,"Clear line-by-line O(n^2) breakdown and stays concise, but d
 exp-02,B,5,5,4,4,5,"Names the variables, squares the correct list and shows an O(n) fix, but slightly long"
 exp-03,A,5,5,4,4,4,"Clear explanation of identity vs equality, but very wordy with much padding"
 exp-03,B,5,5,4,4,4,"Clear explanation of identity vs equality with the True/False output shown, but very wordy with much padding"
-fix-01,A,,,,,,
-fix-01,B,,,,,,
+fix-01,A,5,5,5,5,5,"Finds the ZeroDivisionError on an empty list; clean, minimal fix"
+fix-01,B,5,5,5,5,5,"Finds the ZeroDivisionError on an empty list; clean, minimal fix"
 fix-02,A,,,,,,
 fix-02,B,,,,,,
 fix-03,A,,,,,,

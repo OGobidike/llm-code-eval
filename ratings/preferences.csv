@@ -3,7 +3,7 @@ amb-01,A,clear,"A is my choice, clearly. A opens by saying that cleaning up a ph
 exp-01,tie,,"Tie. Both explain correctly that .sort() sorts in place and returns None, name sorted() as the alternative, and say when to use each. Both are longer than the question needs, so neither would serve the user better."
 exp-02,B,clear,"B is preferred, clearly. Both correctly give the complexity as O(|b| + |a|^2), naming their variables, and both show a faster version, but only B explains why the faster version works and ends with a practical takeaway. A is more concise, but leaves the user without the reasoning behind its fix."
 exp-03,tie,,"Tie. Both explain that is checks identity and == checks equality, give a correct example where they disagree, and say when is is the right choice. Both are padded well beyond what the question needs, so neither would serve the user better."
-fix-01,,,
+fix-01,tie,,"Tie. Both identify that an empty list makes len(nums) zero and raises ZeroDivisionError, add an empty-list check that returns None, and pass all hidden tests. Neither adds anything the other lacks."
 fix-02,,,
 fix-03,,,
 fix-04,,,
