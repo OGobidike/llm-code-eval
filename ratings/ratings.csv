@@ -4,7 +4,7 @@ amb-01,B,3,3,4,3,3,"Never flags unclear responses and silently returns None"
 exp-01,A,5,5,4,4,4,"Explains very well, but two versions offered, quite wordy"
 exp-01,B,5,5,4,4,4,"Very clearly explains the cause and both options; only slightly long"
 exp-02,A,5,5,4,4,4,"Clear line-by-line O(n^2) breakdown and stays concise, but doesn't explain why the faster version works"
-exp-02,B,5,5,4,4,5, " Names the variables, squares the correct list, slightly long however
+exp-02,B,5,5,4,4,5,"Names the variables, squares the correct list and shows an O(n) fix, but slightly long"
 exp-03,A,,,,,,
 exp-03,B,,,,,,
 fix-01,A,,,,,,
