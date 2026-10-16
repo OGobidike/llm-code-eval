@@ -247,3 +247,33 @@ Hidden tests: pass 3/3
 
 ---
 
+# 9. fix-05
+
+## fix-05
+
+Requirements from the prompt:
+- Explains why `list(set(items))` gets the order wrong
+- Fixes `dedupe` so it removes duplicates
+- Keeps the first occurrence of each item, in original order
+
+### A
+Hidden tests: pass 3/3
+[x] Finds the real bug (the cause, not the symptom): identifies that sets are unordered
+[x] Explains accurately why the order is wrong: explains that Python sets don't keep insertion order
+[x] Removes duplicates: uses list(dict.fromkeys(items)), with a seen-set loop as an alternative; both O(n)
+[x] Keeps first occurrences in original order: the first occurrence of each item is kept, in order
+[x] Keeps the function name and signature: yes
+[x] Adds no new bug: none found; dict.fromkeys keeps each item once as a key, in insertion order
+[x] Stays concise: no padding, no tangents: clear and concise
+
+### B
+Hidden tests: pass 3/3
+[x] Finds the real bug (the cause, not the symptom): identifies that sets are unordered
+[x] Explains accurately why the order is wrong: explains that Python sets don't keep insertion order
+[x] Removes duplicates: uses list(dict.fromkeys(items)), with a seen-set loop as an alternative; both O(n)
+[x] Keeps first occurrences in original order: the first occurrence of each item is kept, in order
+[x] Keeps the function name and signature: yes
+[x] Adds no new bug: none found; dict.fromkeys keeps each item once as a key, in insertion order
+[x] Stays concise: no padding, no tangents: clearer and more concise than A; easier to read
+
+---
