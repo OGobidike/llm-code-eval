@@ -215,3 +215,35 @@ Hidden tests: pass 7/7
 [x] Stays concise: no padding, no tangents: concise
 
 ---
+
+# 8. fix-04
+
+## fix-04
+
+Requirements from the prompt:
+- Explains why the loop raises "dictionary changed size during iteration"
+- Fixes `remove_low_stock` so it removes every item below `minimum`
+- Returns the same dict (the caller's object), not a new one
+
+### A
+Hidden tests: fail 2/3 (test_returns_same_dict)
+[x] Finds the real bug (the cause, not the symptom): identifies deleting from the dict while looping over it
+[x] Explains accurately why it raises the error: explains that removing items while iterating changes the dict's size
+[x] Removes every item below minimum: main fix loops over list(stock.keys()) and deletes with <
+[~] Returns the same dict, not a new one: main fix does, but the final alternative builds and returns a new dict
+[x] Keeps the function name and signature: yes
+[ ] Adds no new bug: the alternative returns a new dict, so the caller's dict is left unchanged
+[x] Stays concise: no padding, no tangents:
+
+### B
+Hidden tests: pass 3/3
+[x] Finds the real bug (the cause, not the symptom): yes
+[x] Explains accurately why it raises the error: clear explanation of why deleting during iteration raises the RuntimeError
+[x] Removes every item below minimum: loops over list(stock) and deletes with <
+[x] Returns the same dict, not a new one: modifies stock in place and says so clearly
+[x] Keeps the function name and signature: yes
+[x] Adds no new bug: correct
+[x] Stays concise: no padding, no tangents: includes worked examples
+
+---
+

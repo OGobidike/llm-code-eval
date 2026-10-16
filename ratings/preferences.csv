@@ -6,7 +6,7 @@ exp-03,tie,,"Tie. Both explain that is checks identity and == checks equality, g
 fix-01,tie,,"Tie. Both identify that an empty list makes len(nums) zero and raises ZeroDivisionError, add an empty-list check that returns None, and pass all hidden tests. Neither adds anything the other lacks."
 fix-02,tie,,"Tie. Both explain that the default list is created once when the function is defined, so calls without tags share it, and both apply the standard tags=None fix with an is None check. Both pass all hidden tests and are equally concise."
 fix-03,B,slight,"B is preferred, slightly. Both find that lo = mid and hi = mid can stop the search range from shrinking, fix it with mid + 1 and mid - 1, and pass all hidden tests. B's comments explain each change in the code itself, which helps a reader; A is equally correct and concise."
-fix-04,,,
+fix-04,B,clear,"B is preferred, clearly. Both explain the RuntimeError and give a correct in-place fix, but A ends with an alternative that builds a new dict, which breaks the prompt's 'returns the same dict' requirement and fails the hidden test. B modifies stock in place, says so explicitly, and passes every test."
 fix-05,,,
 hon-01,,,
 impl-01,,,

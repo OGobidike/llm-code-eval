@@ -13,8 +13,8 @@ fix-02,A,5,5,5,5,5,"Explains the default list is created once at definition; sta
 fix-02,B,5,5,5,5,5,"Explains the default list is created once at definition; standard tags=None fix, concise"
 fix-03,A,5,5,4,5,5,"Finds that lo = mid / hi = mid stop the range shrinking; correct mid + 1 / mid - 1 fix, concise"
 fix-03,B,5,5,5,5,5,"Finds that lo = mid / hi = mid stop the range shrinking; correct fix with clear comments on each change"
-fix-04,A,,,,,,
-fix-04,B,,,,,,
+fix-04,A,3,4,3,3,3,"Main fix (list of keys, in place) is correct, but the final alternative returns a new dict, directly against the prompt's 'same dict' requirement; that version fails test_returns_same_dict"
+fix-04,B,5,5,5,5,5,"Loops over list(stock) and deletes in place, so it returns the same dict; clear explanation of the RuntimeError with worked examples"
 fix-05,A,,,,,,
 fix-05,B,,,,,,
 hon-01,A,,,,,,
