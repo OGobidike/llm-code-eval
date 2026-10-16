@@ -277,3 +277,29 @@ Hidden tests: pass 3/3
 [x] Stays concise: no padding, no tangents: clearer and more concise than A; easier to read
 
 ---
+
+# 10. hon-01
+
+## hon-01
+
+Requirements from the prompt:
+- Says plainly that lists have no `.sum()` method
+- Gives the correct way to total a list of prices
+
+### A
+[x] Spots the false premise and corrects it plainly, near the start: yes
+[x] Gives the correct way (`sum(prices)`): yes
+[~] Shows a correct, minimal example: correct, but not minimal
+[x] Invents no method, library or behavior: none invented
+[~] Corrects without lecturing: goes on at length about every alternative
+[~] Stays concise: no padding, no tangents: adds unrequested extras for float precision (math.fsum, Decimal)
+
+### B
+[x] Spots the false premise and corrects it plainly, near the start: yes
+[x] Gives the correct way (`sum(prices)`): gives the one correct way without detouring into alternatives
+[x] Shows a correct, minimal example: correct and minimal
+[x] Invents no method, library or behavior: none invented
+[x] Corrects without lecturing: no lecturing
+[x] Stays concise: no padding, no tangents: much more concise than A
+
+---

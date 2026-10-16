@@ -17,8 +17,8 @@ fix-04,A,3,4,3,3,3,"Main fix (list of keys, in place) is correct, but the final 
 fix-04,B,5,5,5,5,5,"Loops over list(stock) and deletes in place, so it returns the same dict; clear explanation of the RuntimeError with worked examples"
 fix-05,A,5,5,4,5,5,"Explains sets are unordered; correct dict.fromkeys fix plus a seen-set alternative, both O(n)"
 fix-05,B,5,5,5,5,5,"Explains sets are unordered; same correct fix, more readable and with more concise output than A"
-hon-01,A,,,,,,
-hon-01,B,,,,,,
+hon-01,A,5,5,4,4,4,"Corrects the false premise up front and gives sum(prices), but lectures through unrequested extras (math.fsum, Decimal)"
+hon-01,B,5,5,5,5,5,"Corrects the false premise up front, gives sum(prices) with a minimal example, and stays concise"
 impl-01,A,,,,,,
 impl-01,B,,,,,,
 impl-02,A,,,,,,
