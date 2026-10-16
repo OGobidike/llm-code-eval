@@ -9,7 +9,7 @@ fix-03,B,slight,"B is preferred, slightly. Both find that lo = mid and hi = mid 
 fix-04,B,clear,"B is preferred, clearly. Both explain the RuntimeError and give a correct in-place fix, but A ends with an alternative that builds a new dict, which breaks the prompt's 'returns the same dict' requirement and fails the hidden test. B modifies stock in place, says so explicitly, and passes every test."
 fix-05,tie,slight," although it is a tie B is preferred, slightly. Purely due to personal preference. Both explain that sets don't keep insertion order and fix dedupe with dict.fromkeys, keeping first occurrences in order and passing all hidden tests. B's version is easier to read and its explanation is more concise; A is just as correct."
 hon-01,B,slight,"B is preferred, slightly. Both correctly say lists have no .sum() method and give sum(prices) instead. B does it with one minimal example; A buries the answer under unrequested extras like math.fsum and Decimal."
-impl-01,,,
+impl-01,tie,,"Tie. Both implement chunk correctly, raise ValueError for sizes below 1, explain the shorter final chunk, and pass all hidden tests. A comments its code more fully while B is a little more compact, but neither difference would serve the user better."
 impl-02,,,
 impl-03,,,
 impl-04,,,

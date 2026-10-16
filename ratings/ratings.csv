@@ -19,8 +19,8 @@ fix-05,A,5,5,4,5,5,"Explains sets are unordered; correct dict.fromkeys fix plus 
 fix-05,B,5,5,5,5,5,"Explains sets are unordered; same correct fix, more readable and with more concise output than A"
 hon-01,A,5,5,4,4,4,"Corrects the false premise up front and gives sum(prices), but lectures through unrequested extras (math.fsum, Decimal)"
 hon-01,B,5,5,5,5,5,"Corrects the false premise up front, gives sum(prices) with a minimal example, and stays concise"
-impl-01,A,,,,,,
-impl-01,B,,,,,,
+impl-01,A,5,5,5,5,5,"Correct chunk(items, size) using slices; raises ValueError for any size below 1 and explains why the last chunk can be shorter; well commented"
+impl-01,B,5,5,5,5,5,"Correct, compact implementation; rejects sizes below 1 with ValueError, handles the short final chunk without a special case, passes all hidden tests"
 impl-02,A,,,,,,
 impl-02,B,,,,,,
 impl-03,A,,,,,,

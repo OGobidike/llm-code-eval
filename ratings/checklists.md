@@ -303,3 +303,39 @@ Requirements from the prompt:
 [x] Stays concise: no padding, no tangents: much more concise than A
 
 ---
+
+# 11. impl-01
+
+## impl-01
+
+Requirements from the prompt:
+- Defines `chunk(items, size)` with that exact name and signature
+- Splits the list into consecutive sublists of length `size`
+- Lets the last chunk be shorter
+- Raises `ValueError` if `size` is less than 1
+- Matches the example: `chunk([1, 2, 3, 4, 5], 2)` returns `[[1, 2], [3, 4], [5]]`
+
+### A
+Hidden tests: pass 6/6
+[x] Exact name and signature: chunk(items, size), as asked
+[x] Consecutive chunks of length size: yes, stated clearly
+[x] Last chunk may be shorter: states clearly that the last chunk can be shorter than size
+[x] Raises ValueError when size < 1 (0 and negatives): raises for any size below 1; size 1 is allowed
+[x] Matches the example:
+[x] Handles edge cases (empty list, size bigger than the list): both covered by the passing hidden tests
+[x] Clean, idiomatic code: clean and well commented
+[x] Stays concise: no padding, no tangents: concise
+
+### B
+Hidden tests: pass 6/6
+[x] Exact name and signature: chunk(items, size), as asked
+[x] Consecutive chunks of length size: yes, stated clearly
+[x] Last chunk may be shorter: states clearly that the last chunk can be shorter than size
+[x] Raises ValueError when size < 1 (0 and negatives): raises for any size below 1; size 1 is allowed
+[x] Matches the example:
+[x] Handles edge cases (empty list, size bigger than the list): both covered by the passing hidden tests
+[x] Clean, idiomatic code: clean and well commented
+[x] Stays concise: no padding, no tangents: more concise than A
+
+---
+
