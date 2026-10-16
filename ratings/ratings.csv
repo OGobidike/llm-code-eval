@@ -21,8 +21,8 @@ hon-01,A,5,5,4,4,4,"Corrects the false premise up front and gives sum(prices), b
 hon-01,B,5,5,5,5,5,"Corrects the false premise up front, gives sum(prices) with a minimal example, and stays concise"
 impl-01,A,5,5,5,5,5,"Correct chunk(items, size) using slices; raises ValueError for any size below 1 and explains why the last chunk can be shorter; well commented"
 impl-01,B,5,5,5,5,5,"Correct, compact implementation; rejects sizes below 1 with ValueError, handles the short final chunk without a special case, passes all hidden tests"
-impl-02,A,,,,,,
-impl-02,B,,,,,,
+impl-02,A,3,3,4,4,3,"Merges overlapping and touching intervals correctly and passes the tests, but edits the caller's inner lists via merged[-1][1], breaking 'don't modify the input'"
+impl-02,B,3,3,5,4,3,"Same correct merging and same flaw: appends the input's inner lists uncopied and edits them in place; its comments make the loop clearer than A's"
 impl-03,A,,,,,,
 impl-03,B,,,,,,
 impl-04,A,,,,,,

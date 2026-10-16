@@ -339,3 +339,36 @@ Hidden tests: pass 6/6
 
 ---
 
+# 12. impl-02
+
+## impl-02
+
+Requirements from the prompt:
+- Defines `merge_intervals(intervals)`, taking [start, end] pairs in any order
+- Returns the merged list, sorted
+- Merges intervals that touch, like [1, 3] and [3, 5]
+- Doesn't modify the input list
+
+### A
+Hidden tests: pass 6/6
+[x] Exact name and signature: merge_intervals(intervals), as asked
+[x] Handles input in any order (sorts first): uses sorted(), which builds a new list, so the sort itself is safe
+[x] Merges overlapping intervals: yes, with a good explanation
+[x] Merges touching intervals (uses <=, not <): yes
+[x] Returns a sorted result: yes
+[ ] Doesn't modify the input, inner lists included: appends the caller's inner lists without copying, then edits merged[-1][1], which changes the input
+[x] Clean, idiomatic code:
+[x] Stays concise: no padding, no tangents:
+
+### B
+Hidden tests: pass 6/6
+[x] Exact name and signature: merge_intervals(intervals), as asked
+[x] Handles input in any order (sorts first): uses sorted(), which builds a new list, so the sort itself is safe
+[x] Merges overlapping intervals: yes, with a good explanation
+[x] Merges touching intervals (uses <=, not <): yes
+[x] Returns a sorted result: yes
+[ ] Doesn't modify the input, inner lists included: appends the caller's inner lists without copying, then edits merged[-1][1], which changes the input
+[x] Clean, idiomatic code: clear comments make the merge loop easy to follow
+[x] Stays concise: no padding, no tangents:
+
+---
