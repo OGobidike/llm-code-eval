@@ -501,3 +501,23 @@ Hidden tests: pass 4/4
 [x] Stays concise: no padding, no tangents:
 
 ---
+
+### A
+Hidden tests: pass 11/11
+[x] Keeps the name and signature: letter_grade(score)
+[x] Same results at every boundary (90, 89.9, 60, 59.5): all boundaries pass
+[x] Adds no new behavior (no new errors, no clamping): no validation added
+[x] Removes the nesting (elif chain, early returns or a table): replaces the four levels of nested if/else with one flat if/elif chain
+[x] Clearly more readable than the original: each grade threshold reads top to bottom on its own line
+[x] Explains what changed, briefly:
+[x] Stays concise: no padding, no tangents:
+
+### B
+Hidden tests: pass 11/11
+[x] Keeps the name and signature: letter_grade(score)
+[x] Same results at every boundary (90, 89.9, 60, 59.5): all boundaries pass
+[x] Adds no new behavior (no new errors, no clamping): no validation added
+[x] Removes the nesting (elif chain, early returns or a table): flattens the nested if/else into a single if/elif chain
+[x] Clearly more readable than the original: thresholds are listed in order, so the grading scale is visible at a glance
+[x] Explains what changed, briefly:
+[x] Stays concise: no padding, no tangents:
