@@ -29,8 +29,8 @@ impl-04,A,5,5,5,5,5,"Correct single-pass sliding window, truly O(n) with no slic
 impl-04,B,5,5,5,5,5,"Correct O(n) sliding window that never moves the left edge backwards; returns the length, passes all tests, and its two-to-three-sentence explanation is accurate"
 impl-05,A,5,5,4,4,4,"Correct parser that rejects every invalid case, but very long, and its comments lose structure because of the length"
 impl-05,B,5,5,5,5,5,"Correct, concise parser using re.fullmatch, so trailing junk is rejected; explains why fullmatch matters"
-impl-06,A,,,,,,
-impl-06,B,,,,,,
+impl-06,A,4,5,5,5,4,"Correct recursive flatten that keeps strings whole and opens only lists and tuples; very deep nesting would hit the recursion limit; notes that cyclic lists aren't handled"
+impl-06,B,5,5,5,5,5,"Correct flatten that keeps strings whole and opens only lists and tuples; adds an iterative stack version for very deep nesting; well commented"
 ref-01,A,,,,,,
 ref-01,B,,,,,,
 ref-02,A,,,,,,

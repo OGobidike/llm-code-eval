@@ -469,3 +469,35 @@ Hidden tests: pass 12/12
 [x] Stays concise: no padding, no tangents: very clear and concise
 
 ---
+
+# 16. impl-06
+
+## impl-06
+
+Requirements from the prompt:
+- Defines `flatten(nested)` and returns one flat list, in order
+- Flattens arbitrarily nested lists and tuples
+- Never splits strings into characters
+- Matches the example: `flatten([1, [2, (3, "ab")], [[4]]])` returns `[1, 2, 3, "ab", 4]`
+
+### A
+Hidden tests: pass 4/4
+[x] Exact name and signature, returns a list:
+[~] Flattens any depth of lists and tuples, in order: recursive, so very deep nesting (about 1,000 levels) hits Python's recursion limit
+[x] Keeps strings whole:
+[x] Flattens only lists and tuples, as asked: 
+[x] Matches the example:
+[x] Clean, idiomatic code: clean; notes that self-referencing (cyclic) lists aren't handled
+[x] Stays concise: no padding, no tangents:
+
+### B
+Hidden tests: pass 4/4
+[x] Exact name and signature, returns a list:
+[x] Flattens any depth of lists and tuples, in order: adds an iterative, stack-based version for very deep nesting
+[x] Keeps strings whole:
+[x] Flattens only lists and tuples, as asked: uses isinstance
+[x] Matches the example:
+[x] Clean, idiomatic code: good comments
+[x] Stays concise: no padding, no tangents:
+
+---
