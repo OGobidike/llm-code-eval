@@ -372,3 +372,37 @@ Hidden tests: pass 6/6
 [x] Stays concise: no padding, no tangents:
 
 ---
+
+# 13. impl-03
+
+## impl-03
+
+Requirements from the prompt:
+- Defines `is_anagram(a, b)` and returns True or False
+- Ignores case
+- Ignores spaces
+- Matches the example: `is_anagram("Dormitory", "dirty room")` is True
+
+### A
+Hidden tests: pass 4/4
+[x] Exact name and signature, returns a bool: returns a boolean
+[x] Ignores case: uses .lower() and explains it
+[x] Ignores spaces (inside the string too, not just the ends): uses .replace(" ", "") and explains it
+[x] Compares letter counts correctly ("aab" vs "abb" is False): shows an example
+[x] Matches the example:
+[x] Ignores nothing extra that wasn't asked for: only case and spaces
+[x] Clean, idiomatic code: very clean; adds a useful O(n) alternative with collections.Counter
+[x] Stays concise: no padding, no tangents:
+
+### B
+Hidden tests: pass 4/4
+[x] Exact name and signature, returns a bool: returns a boolean
+[x] Ignores case: uses .lower()
+[x] Ignores spaces (inside the string too, not just the ends): uses .replace(" ", "")
+[x] Compares letter counts correctly ("aab" vs "abb" is False): gives an example
+[x] Matches the example:
+[x] Ignores nothing extra that wasn't asked for: only case and spaces
+[x] Clean, idiomatic code:
+[x] Stays concise: no padding, no tangents: very concise, nothing extra
+
+---

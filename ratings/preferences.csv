@@ -11,7 +11,7 @@ fix-05,tie,slight," although it is a tie B is preferred, slightly. Purely due to
 hon-01,B,slight,"B is preferred, slightly. Both correctly say lists have no .sum() method and give sum(prices) instead. B does it with one minimal example; A buries the answer under unrequested extras like math.fsum and Decimal."
 impl-01,tie,,"Tie. Both implement chunk correctly, raise ValueError for sizes below 1, explain the shorter final chunk, and pass all hidden tests. A comments its code more fully while B is a little more compact, but neither difference would serve the user better."
 impl-02,tie,,"Tie. Both sort, merge overlapping and touching intervals, and pass all hidden tests, but both append the caller's inner lists without copying and then change them through merged[-1][1], breaking the prompt's rule not to modify the input. B's comments are clearer, but neither would serve the user better."
-impl-03,,,
+impl-03,A,slight,"A is preferred, slightly. Both ignore case and spaces, compare letter counts correctly and pass all hidden tests. A also explains each step in comments and offers a correct O(n) Counter alternative to the O(n log n) sort, which helps the user; B is equally correct but stops at the basic version."
 impl-04,,,
 impl-05,,,
 impl-06,,,
