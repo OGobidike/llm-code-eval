@@ -406,3 +406,35 @@ Hidden tests: pass 4/4
 [x] Stays concise: no padding, no tangents: very concise, nothing extra
 
 ---
+
+# 14. impl-04
+
+## impl-04
+
+Requirements from the prompt:
+- Defines `longest_unique_substring(s)` and returns the length, not the substring
+- Finds the longest substring with no repeated characters
+- Runs in O(n) time
+- Explains the approach in two or three sentences
+
+### A
+Hidden tests: pass 6/6
+[x] Exact name and signature, returns the length: returns the length, not the substring
+[x] Correct on the tricky cases ("pwwkew" gives 3, "abba" gives 2): explains that the if-check stops the left edge from moving backwards
+[x] Really O(n), with no hidden inner scan: single pass using a dict/set; no slicing inside the loop
+[x] Explanation is two or three sentences:
+[x] Explanation is accurate and matches the code:
+[x] Clean, idiomatic code:
+[x] Stays concise: no padding, no tangents:
+
+### B
+Hidden tests: pass 6/6
+[x] Exact name and signature, returns the length: returns the length, not the substring
+[x] Correct on the tricky cases ("pwwkew" gives 3, "abba" gives 2): explains that the if-check stops the left edge from moving backwards
+[x] Really O(n), with no hidden inner scan: single pass using a dict/set; no slicing inside the loop
+[x] Explanation is two or three sentences:
+[x] Explanation is accurate and matches the code:
+[x] Clean, idiomatic code:
+[x] Stays concise: no padding, no tangents:
+
+---

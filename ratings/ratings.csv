@@ -25,8 +25,8 @@ impl-02,A,3,3,4,4,3,"Merges overlapping and touching intervals correctly and pas
 impl-02,B,3,3,5,4,3,"Same correct merging and same flaw: appends the input's inner lists uncopied and edits them in place; its comments make the loop clearer than A's"
 impl-03,A,5,5,5,5,5,"Correct is_anagram using lower() and replace(); well commented and thorough, and adds a correct O(n) alternative with collections.Counter"
 impl-03,B,5,5,5,5,5,"Correct and lean is_anagram using lower() and replace(); clear example, nothing beyond what was asked"
-impl-04,A,,,,,,
-impl-04,B,,,,,,
+impl-04,A,5,5,5,5,5,"Correct single-pass sliding window, truly O(n) with no slicing in the loop; returns the length and handles the 'abba' jump-back case; explanation is short and matches the code"
+impl-04,B,5,5,5,5,5,"Correct O(n) sliding window that never moves the left edge backwards; returns the length, passes all tests, and its two-to-three-sentence explanation is accurate"
 impl-05,A,,,,,,
 impl-05,B,,,,,,
 impl-06,A,,,,,,
