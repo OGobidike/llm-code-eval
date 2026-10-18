@@ -27,8 +27,8 @@ impl-03,A,5,5,5,5,5,"Correct is_anagram using lower() and replace(); well commen
 impl-03,B,5,5,5,5,5,"Correct and lean is_anagram using lower() and replace(); clear example, nothing beyond what was asked"
 impl-04,A,5,5,5,5,5,"Correct single-pass sliding window, truly O(n) with no slicing in the loop; returns the length and handles the 'abba' jump-back case; explanation is short and matches the code"
 impl-04,B,5,5,5,5,5,"Correct O(n) sliding window that never moves the left edge backwards; returns the length, passes all tests, and its two-to-three-sentence explanation is accurate"
-impl-05,A,,,,,,
-impl-05,B,,,,,,
+impl-05,A,5,5,4,4,4,"Correct parser that rejects every invalid case, but very long, and its comments lose structure because of the length"
+impl-05,B,5,5,5,5,5,"Correct, concise parser using re.fullmatch, so trailing junk is rejected; explains why fullmatch matters"
 impl-06,A,,,,,,
 impl-06,B,,,,,,
 ref-01,A,,,,,,

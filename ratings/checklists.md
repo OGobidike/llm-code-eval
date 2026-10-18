@@ -438,3 +438,34 @@ Hidden tests: pass 6/6
 [x] Stays concise: no padding, no tangents:
 
 ---
+
+# 15. impl-05
+
+## impl-05
+
+Requirements from the prompt:
+- Defines `parse_duration(text)` and returns total seconds as an int
+- Accepts units h, m and s, each at most once, in that order
+- Raises ValueError for anything else, including an empty string
+
+### A
+Hidden tests: pass 12/12
+[x] Exact name and signature, returns an int: yes
+[x] Correct totals ("1h30m" is 5400, "2h5s" is 7205): yes
+[x] Rejects wrong order and repeats ("1m1h", "1h1h"):
+[x] Rejects empty, bare numbers and junk ("", "5", "abc"):
+[x] Rejects trailing or leading junk ("1h30mx", " 1h"): <fullmatch or $, which one>
+[~] Clean, idiomatic code: clean code, but very long, and the comments lose their structure because of the length
+[~] Stays concise: no padding, no tangents: not concise
+
+### B
+Hidden tests: pass 12/12
+[x] Exact name and signature, returns an int:
+[x] Correct totals ("1h30m" is 5400, "2h5s" is 7205):
+[x] Rejects wrong order and repeats ("1m1h", "1h1h"):
+[x] Rejects empty, bare numbers and junk ("", "5", "abc"):
+[x] Rejects trailing or leading junk ("1h30mx", " 1h"): uses re.fullmatch, and explains why
+[x] Clean, idiomatic code:
+[x] Stays concise: no padding, no tangents: very clear and concise
+
+---

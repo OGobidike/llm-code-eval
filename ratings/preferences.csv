@@ -13,7 +13,7 @@ impl-01,tie,,"Tie. Both implement chunk correctly, raise ValueError for sizes be
 impl-02,tie,,"Tie. Both sort, merge overlapping and touching intervals, and pass all hidden tests, but both append the caller's inner lists without copying and then change them through merged[-1][1], breaking the prompt's rule not to modify the input. B's comments are clearer, but neither would serve the user better."
 impl-03,A,slight,"A is preferred, slightly. Both ignore case and spaces, compare letter counts correctly and pass all hidden tests. A also explains each step in comments and offers a correct O(n) Counter alternative to the O(n log n) sort, which helps the user; B is equally correct but stops at the basic version."
 impl-04,tie,,"Tie. Both use a single-pass sliding window that is genuinely O(n), return the length rather than the substring, handle repeats inside the window and the 'abba' case, and explain the approach accurately in the requested two or three sentences. Neither would serve the user better."
-impl-05,,,
+impl-05,B,slight,"B is preferred, slightly. Both parse valid durations correctly, reject every invalid input including the empty string, and pass all hidden tests. B does it in a short, clear regex with re.fullmatch and explains why; A is equally correct but long enough that its structure gets hard to follow."
 impl-06,,,
 ref-01,,,
 ref-02,,,
