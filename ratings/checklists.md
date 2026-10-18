@@ -481,28 +481,6 @@ Requirements from the prompt:
 - Matches the example: `flatten([1, [2, (3, "ab")], [[4]]])` returns `[1, 2, 3, "ab", 4]`
 
 ### A
-Hidden tests: pass 4/4
-[x] Exact name and signature, returns a list:
-[~] Flattens any depth of lists and tuples, in order: recursive, so very deep nesting (about 1,000 levels) hits Python's recursion limit
-[x] Keeps strings whole:
-[x] Flattens only lists and tuples, as asked: 
-[x] Matches the example:
-[x] Clean, idiomatic code: clean; notes that self-referencing (cyclic) lists aren't handled
-[x] Stays concise: no padding, no tangents:
-
-### B
-Hidden tests: pass 4/4
-[x] Exact name and signature, returns a list:
-[x] Flattens any depth of lists and tuples, in order: adds an iterative, stack-based version for very deep nesting
-[x] Keeps strings whole:
-[x] Flattens only lists and tuples, as asked: uses isinstance
-[x] Matches the example:
-[x] Clean, idiomatic code: good comments
-[x] Stays concise: no padding, no tangents:
-
----
-
-### A
 Hidden tests: pass 11/11
 [x] Keeps the name and signature: letter_grade(score)
 [x] Same results at every boundary (90, 89.9, 60, 59.5): all boundaries pass
@@ -521,3 +499,36 @@ Hidden tests: pass 11/11
 [x] Clearly more readable than the original: thresholds are listed in order, so the grading scale is visible at a glance
 [x] Explains what changed, briefly:
 [x] Stays concise: no padding, no tangents:
+
+---
+
+# 18. ref-02
+
+## ref-02
+
+Requirements from the prompt:
+- Makes the function more Pythonic
+- Makes it more efficient
+- Returns exactly the same string as before, and keeps the name `csv_line(values)`
+
+### A
+Hidden tests: pass 4/4
+[x] Keeps the name and signature: still csv_line(values)
+[x] Same output for every input (empty, single, mixed types, tuples): empty gives "", a single item has no trailing comma, and mixed types and tuples match the original
+[x] Adds no new behavior (no quoting, no line ending): a value containing a comma passes through unquoted, and there's no trailing newline
+[x] More Pythonic (join, no index loop): drops the range(len()) loop for one ','.join() call
+[x] More efficient, and explains why accurately: explains that repeated + rebuilds the string each pass (O(n^2)), while join builds it once (O(n))
+[x] Clean, idiomatic code: a one-line return that converts each value with str()
+[x] Stays concise: no padding, no tangents:
+
+### B
+Hidden tests: pass 4/4
+[x] Keeps the name and signature: name and single parameter unchanged
+[x] Same output for every input (empty, single, mixed types, tuples): returns the identical string in every tested case, including the empty list
+[x] Adds no new behavior (no quoting, no line ending): no csv module, so values that already contain commas come out exactly as before
+[x] More Pythonic (join, no index loop): replaces manual indexing and the last-item check with ','.join over str values
+[x] More efficient, and explains why accurately: correctly says join avoids the quadratic cost of building the string piece by piece
+[x] Clean, idiomatic code: short and readable
+[x] Stays concise: no padding, no tangents:
+
+---
