@@ -1,2 +1,3 @@
 prompt_id,model,status,passed,total
+fix-04,gold,pass,3,3
 impl-02,gold,pass,6,6
