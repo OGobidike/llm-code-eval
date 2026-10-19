@@ -1,6 +1,7 @@
 """Check one graded sheet before you commit it.
 
 Usage: python scripts/check_sheet.py exp-01
+       python scripts/check_sheet.py exp-01 --regrade   (checks the regrade_*.csv files)
 
 Lists anything that would break the summary: a missing or extra row, a score
 outside 1-5, an empty rationale, a note split into extra columns, or a second
@@ -34,45 +35,53 @@ def file_problems(name, rows):
     return problems
 
 
-def sheet_problems(prompt_id):
-    ratings, prefs = read_rows("ratings.csv"), read_rows("preferences.csv")
-    problems = file_problems("ratings.csv", ratings) + file_problems("preferences.csv", prefs)
+def sheet_problems(prompt_id, prefix=""):
+    ratings_name, prefs_name = f"{prefix}ratings.csv", f"{prefix}preferences.csv"
+    ratings, prefs = read_rows(ratings_name), read_rows(prefs_name)
+    problems = file_problems(ratings_name, ratings) + file_problems(prefs_name, prefs)
 
     mine = [row for _, row in ratings if row["prompt_id"] == prompt_id]
     slots = sorted(row["slot"] for row in mine)
     if slots != ["A", "B"]:
-        problems.append(f"ratings.csv: expected one row each for A and B, found {slots or 'none'}")
+        problems.append(f"{ratings_name}: expected one row each for A and B, "
+                        f"found {slots or 'none'}")
     for row in mine:
         for col in SCORES:
             value = (row.get(col) or "").strip()
             if value == "" and col in OPTIONAL_SCORES:
                 continue
             if value not in {"1", "2", "3", "4", "5"}:
-                problems.append(f"ratings.csv {prompt_id} {row['slot']}: {col} must be 1-5, "
+                problems.append(f"{ratings_name} {prompt_id} {row['slot']}: {col} must be 1-5, "
                                 f"got {value!r}")
 
     pref = [row for _, row in prefs if row["prompt_id"] == prompt_id]
     if len(pref) != 1:
-        problems.append(f"preferences.csv: expected one row for {prompt_id}, found {len(pref)}")
+        problems.append(f"{prefs_name}: expected one row for {prompt_id}, found {len(pref)}")
     for row in pref:
         preferred = (row.get("preferred") or "").strip()
         strength = (row.get("strength") or "").strip()
         if preferred not in {"A", "B", "tie"}:
-            problems.append(f"preferences.csv {prompt_id}: preferred must be A, B or tie, "
+            problems.append(f"{prefs_name} {prompt_id}: preferred must be A, B or tie, "
                             f"got {preferred!r}")
         elif preferred != "tie" and strength not in STRENGTHS:
-            problems.append(f"preferences.csv {prompt_id}: strength must be slight, clear "
+            problems.append(f"{prefs_name} {prompt_id}: strength must be slight, clear "
                             "or strong")
         if not (row.get("rationale") or "").strip():
-            problems.append(f"preferences.csv {prompt_id}: rationale is empty")
+            problems.append(f"{prefs_name} {prompt_id}: rationale is empty")
     return problems
 
 
 def main():
-    if len(sys.argv) != 2:
-        sys.exit("Usage: python scripts/check_sheet.py <prompt_id>, for example exp-01")
-    prompt_id = sys.argv[1]
-    problems = sheet_problems(prompt_id)
+    args = sys.argv[1:]
+    regrade = "--regrade" in args
+    args = [a for a in args if a != "--regrade"]
+    if len(args) != 1:
+        sys.exit("Usage: python scripts/check_sheet.py <prompt_id> [--regrade], for example exp-01")
+    prompt_id = args[0]
+    prefix = "regrade_" if regrade else ""
+    if not (RATINGS / f"{prefix}ratings.csv").exists():
+        sys.exit(f"No ratings/{prefix}ratings.csv yet. Run python scripts/make_regrade.py first.")
+    problems = sheet_problems(prompt_id, prefix)
     if problems:
         print("Fix these first:\n  " + "\n  ".join(problems))
         sys.exit(1)

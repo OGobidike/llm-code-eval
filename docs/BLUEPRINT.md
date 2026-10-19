@@ -87,7 +87,7 @@ Work in blocks of about 6 sheets, with breaks. Tired grading is inconsistent gra
 **Goal:** measure your own consistency, the thing graders are hired for.
 
 - [ ] Without looking at your first grades, run `python scripts/make_regrade.py ~/blind_key_llm-code-eval.csv`, giving the path where you keep the key. It reads the key without showing it, picks 5 prompts and swaps A and B.
-- [ ] Grade `review/regrade/` into `ratings/regrade_ratings.csv` and `ratings/regrade_preferences.csv`.
+- [ ] Grade `review/regrade/` into `ratings/regrade_ratings.csv` and `ratings/regrade_preferences.csv`. After each sheet, run `python scripts/check_sheet.py <prompt_id> --regrade`.
 - [ ] Put `blind_key.csv` back in `ratings/`, then run `python scripts/summarize.py`.
 - [ ] Read `results/summary.md`. Wherever the two passes disagree, write one sentence on why. That reflection is portfolio material too.
 - [ ] For each line in the **calibration** list (your grade and the hidden tests disagree), add a note in `ratings/ratings.csv` saying which one was right.
