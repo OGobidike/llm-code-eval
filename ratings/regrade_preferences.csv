@@ -3,4 +3,4 @@ amb-01,B,clear,"B is preferred, clearly. B notices that ""clean up"" can mean se
 fix-01,tie,,"Tie. Both identify the ZeroDivisionError from dividing by len(nums) when the list is empty, add a guard that returns None, keep the signature, and pass all hidden tests. B's extra print examples are harmless, so neither would serve the user better."
 impl-01,A,slight,"A is preferred, slightly. Both split the list into consecutive chunks, allow a shorter final chunk, raise ValueError for sizes below 1 and pass all hidden tests. A does it without padding, while B wraps the same correct answer in tangents the user didn't ask for."
 impl-03,tie,,"Tie. Both ignore case and every space, compare letter counts rather than letter sets, match the 'Dormitory'/'dirty room' example and pass all hidden tests, with nothing extra and no padding. Neither would serve the user better."
-ref-02,,,
+ref-02,tie,,"Tie. Both replace the concatenation loop with a single ','.join(), return exactly the same string for every input, add no quoting or line ending, explain why join avoids the quadratic cost, and pass all hidden tests. Neither would serve the user better."

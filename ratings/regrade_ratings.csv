@@ -7,5 +7,5 @@ impl-01,A,5,5,5,5,5,"Correct chunk(items, size): consecutive slices, a shorter l
 impl-01,B,5,5,5,4,4,"Equally correct chunk with ValueError for sizes below 1 and all tests passing, but padded with tangents beyond the task"
 impl-03,A,5,5,5,5,5,"Correct is_anagram: lowercases, strips every space, compares letter counts, and returns a bool; clean and to the point"
 impl-03,B,5,5,5,5,5,"Equally correct: ignores case and all spaces, catches 'aab' vs 'abb' by comparing counts, matches the Dormitory example"
-ref-02,A,,,,,,
-ref-02,B,,,,,,
+ref-02,A,5,5,5,5,5,"Swaps the index loop for ','.join over str values: same output in every case, no csv quoting or newline, and explains why join is faster"
+ref-02,B,5,5,5,5,5,"Pythonic one-line join that returns the identical string, adds no new behavior, and correctly explains the O(n^2)-to-O(n) gain"
