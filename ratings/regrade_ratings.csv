@@ -1,8 +1,8 @@
 prompt_id,slot,correctness,instruction_following,code_quality,explanation,overall,notes
 amb-01,A,3,3,4,3,3,"Code works for its assumptions, but never flags the ambiguity, asks nothing, and silently returns None for bad input like ""abc""; never says what it returns"
 amb-01,B,5,5,4,5,5,"Flags that ""clean up"" is ambiguous, states its assumptions, handles bad input instead of letting it slip through, and says clearly what it returns"
-fix-01,A,,,,,,
-fix-01,B,,,,,,
+fix-01,A,5,5,5,5,5,"Spots that an empty list makes len(nums) zero and raises ZeroDivisionError; returns None for [] with a minimal, correct fix"
+fix-01,B,5,5,5,5,5,"Correctly traces the crash to dividing by len(nums) on an empty list; guards it to return None, plus a few harmless print examples"
 impl-01,A,,,,,,
 impl-01,B,,,,,,
 impl-03,A,,,,,,

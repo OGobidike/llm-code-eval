@@ -1,6 +1,6 @@
 prompt_id,preferred,strength,rationale
 amb-01,B,clear,"B is preferred, clearly. B notices that ""clean up"" can mean several things, states its assumptions, and handles bad input, while A never mentions the ambiguity and silently returns None for input like ""abc"". A's code works for the cases it assumes, but B serves a user with a vague request far better."
-fix-01,,,
+fix-01,tie,,"Tie. Both identify the ZeroDivisionError from dividing by len(nums) when the list is empty, add a guard that returns None, keep the signature, and pass all hidden tests. B's extra print examples are harmless, so neither would serve the user better."
 impl-01,,,
 impl-03,,,
 ref-02,,,
