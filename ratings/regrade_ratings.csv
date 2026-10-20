@@ -3,8 +3,8 @@ amb-01,A,3,3,4,3,3,"Code works for its assumptions, but never flags the ambiguit
 amb-01,B,5,5,4,5,5,"Flags that ""clean up"" is ambiguous, states its assumptions, handles bad input instead of letting it slip through, and says clearly what it returns"
 fix-01,A,5,5,5,5,5,"Spots that an empty list makes len(nums) zero and raises ZeroDivisionError; returns None for [] with a minimal, correct fix"
 fix-01,B,5,5,5,5,5,"Correctly traces the crash to dividing by len(nums) on an empty list; guards it to return None, plus a few harmless print examples"
-impl-01,A,,,,,,
-impl-01,B,,,,,,
+impl-01,A,5,5,5,5,5,"Correct chunk(items, size): consecutive slices, a shorter last chunk, ValueError below size 1; stays to the point"
+impl-01,B,5,5,5,4,4,"Equally correct chunk with ValueError for sizes below 1 and all tests passing, but padded with tangents beyond the task"
 impl-03,A,,,,,,
 impl-03,B,,,,,,
 ref-02,A,,,,,,
