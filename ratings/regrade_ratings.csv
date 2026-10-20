@@ -5,7 +5,7 @@ fix-01,A,5,5,5,5,5,"Spots that an empty list makes len(nums) zero and raises Zer
 fix-01,B,5,5,5,5,5,"Correctly traces the crash to dividing by len(nums) on an empty list; guards it to return None, plus a few harmless print examples"
 impl-01,A,5,5,5,5,5,"Correct chunk(items, size): consecutive slices, a shorter last chunk, ValueError below size 1; stays to the point"
 impl-01,B,5,5,5,4,4,"Equally correct chunk with ValueError for sizes below 1 and all tests passing, but padded with tangents beyond the task"
-impl-03,A,,,,,,
-impl-03,B,,,,,,
+impl-03,A,5,5,5,5,5,"Correct is_anagram: lowercases, strips every space, compares letter counts, and returns a bool; clean and to the point"
+impl-03,B,5,5,5,5,5,"Equally correct: ignores case and all spaces, catches 'aab' vs 'abb' by comparing counts, matches the Dormitory example"
 ref-02,A,,,,,,
 ref-02,B,,,,,,
