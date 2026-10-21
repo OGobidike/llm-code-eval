@@ -42,7 +42,75 @@ The full plan, phase by phase, is in [`docs/BLUEPRINT.md`](docs/BLUEPRINT.md).
 
 ## Results
 
-_Filled in after grading: models compared, dates, and the key findings from `results/summary.md`._
+**Models:** GPT-6 (ChatGPT web, temporary chat) as model-1 and Qwen-3.7 plus
+(Qwen Chat web, thinking mode off) as model-2, collected in October 2026. Full
+settings are in [`responses/MODELS.md`](responses/MODELS.md); the full numbers
+are in [`results/summary.md`](results/summary.md).
+
+| | GPT-6 | Qwen-3.7 plus |
+|---|---|---|
+| Average overall score (1–5) | **4.61** | 4.44 |
+| Side-by-side wins (9 ties) | **5** | 4 |
+| Responses passing every hidden test | **100%** | 92% |
+| Correctness | 4.72 | 4.72 |
+
+**Consistency:** on the blind re-grade (five prompts, A and B swapped, a day
+later), the overall score was identical for 8 of 10 responses and within one
+point for all 10. The preference matched on 3 of 5 pairs; the other two moved
+one step (tie versus slight) and none flipped to the other model.
+
+**Calibration:** no response was graded correct (4–5) while failing tests, and
+none was graded wrong (1–2) while passing them.
+
+### Findings
+
+1. **Equally correct; GPT-6 was clearer.** Both models scored 4.72 on
+   correctness. GPT-6 led on code quality (4.67 vs 4.44) and explanation
+   (4.67 vs 4.50); Qwen's lower scores came mostly from padding and long
+   detours, such as a lecture on `math.fsum` and `Decimal` in answer to a
+   one-line `sum()` question.
+2. **Passing every test isn't the same as meeting the request.** On
+   `merge_intervals`, both models passed all 6 hidden tests, yet both
+   appended the caller's inner lists and then edited them, breaking the
+   prompt's "don't modify the input" rule. Only reading the code caught it, so
+   both were graded 3 for correctness. On the dict-mutation fix, Qwen's main
+   answer was right, but it ended with a "new dict" alternative that broke
+   "return the same dict" and failed a hidden test.
+3. **Only one model handled the vague request.** Asked to "clean up phone
+   numbers", Qwen pointed out the ambiguity, stated its assumptions and said
+   what it returns. GPT-6 silently assumed a format and returned `None` for
+   input like `"abc"` without a warning. It was Qwen's clearest win.
+
+### Example: `merge_intervals` (impl-02)
+
+**Prompt:** merge a list of `[start, end]` pairs given in any order; touching
+intervals like `[1, 3]` and `[3, 5]` must merge; don't modify the input list.
+
+**Both responses** sorted the intervals, merged overlapping and touching ones,
+and passed all 6 hidden tests. Both also appended the caller's own inner lists
+to the result and then changed them with `merged[-1][1] = ...`, so
+`data = [[1, 3], [2, 6]]` becomes `[[1, 6], [2, 6]]` after the call.
+
+**Rationale (tie):** "Both sort, merge overlapping and touching intervals, and
+pass all hidden tests, but both append the caller's inner lists without
+copying and then change them through merged[-1][1], breaking the prompt's rule
+not to modify the input. B's comments are clearer, but neither would serve the
+user better."
+
+The [gold rewrite](gold/impl-02.md) fixes this by appending a new
+`[start, end]` list, and passes the same tests.
+
+### Limitations
+
+- 18 prompts, two models and one grader, so these are directional findings,
+  not benchmarks.
+- I wrote the prompts and the tests myself, so they reflect what I chose to
+  check.
+- Response A won only 2 of the 9 decided pairs, which may be a lean toward
+  position B; with this few pairs it could also be chance.
+- For the re-grade, the checklists were written fresh and blind; the scores
+  were then drafted with an AI assistant from those fresh checklists using the
+  rubric anchors, and reviewed by me.
 
 ## Run it yourself
 
