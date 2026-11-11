@@ -69,32 +69,46 @@ none was graded wrong (1–2) while passing them.
    (4.67 vs 4.50); Qwen's lower scores came mostly from padding and long
    detours, such as a lecture on `math.fsum` and `Decimal` in answer to a
    one-line `sum()` question.
-2. **Passing every test isn't the same as meeting the request.** On
-   `merge_intervals`, both models passed all 6 hidden tests, yet both
-   appended the caller's inner lists and then edited them, breaking the
-   prompt's "don't modify the input" rule. Only reading the code caught it, so
-   both were graded 3 for correctness. On the dict-mutation fix, Qwen's main
+2. **Reading isn't proof either.** On `merge_intervals`, I first graded both
+   models 3 for correctness because I read their code as editing the caller's
+   lists. Running it later showed neither does: both copy each interval into a
+   new list. The hidden test meant to guard that rule couldn't have settled it,
+   because its example has nothing to merge. Both were marked down in the same
+   places, so the comparison between the models doesn't change; the scores
+   above keep the first-round grades. On the dict-mutation fix, Qwen's main
    answer was right, but it ended with a "new dict" alternative that broke
    "return the same dict" and failed a hidden test.
 3. **Only one model handled the vague request.** Asked to "clean up phone
-   numbers", Qwen pointed out the ambiguity, stated its assumptions and said
-   what it returns. GPT-6 silently assumed a format and returned `None` for
-   input like `"abc"` without a warning. It was Qwen's clearest win.
-
-### Example: `merge_intervals` (impl-02)
+   numbers", Qwen pointed out the ambiguity, ### Example: `merge_intervals` (impl-02)
 
 **Prompt:** merge a list of `[start, end]` pairs given in any order; touching
 intervals like `[1, 3]` and `[3, 5]` must merge; don't modify the input list.
 
 **Both responses** sorted the intervals, merged overlapping and touching ones,
-and passed all 6 hidden tests. Both also appended the caller's own inner lists
-to the result and then changed them with `merged[-1][1] = ...`, so
-`data = [[1, 3], [2, 6]]` becomes `[[1, 6], [2, 6]]` after the call.
+and passed all 6 hidden tests. In the first round I read both as appending the
+caller's own inner lists and then changing them with `merged[-1][1] = ...`, and
+graded both 3 for correctness.
 
-**Rationale (tie):** "Both sort, merge overlapping and touching intervals, and
-pass all hidden tests, but both append the caller's inner lists without
-copying and then change them through merged[-1][1], breaking the prompt's rule
-not to modify the input. B's comments are clearer, but neither would serve the
+**That reading was wrong.** GPT-6 copies the first interval (`[:]`) and appends
+every other one as a new `[start, end]` list; Qwen builds new lists throughout
+and says so in its comments. Run either on `data = [[1, 3], [2, 6]]` and `data`
+comes back unchanged.
+
+**Rationale (tie), as first written:** "Both sort, merge overlapping and
+touching intervals, and pass all hidden tests, but both append the caller's
+inner lists without copying and then change them through merged[-1][1],
+breaking the prompt's rule not to modify the input. B's comments are clearer,
+but neither would serve the user better."
+
+**Why the tests didn't settle it:** `test_input_not_modified` uses
+`[[5, 6], [1, 2]]`, which has nothing to merge, so the editing step never runs.
+An answer that really does change its input still passes all 6 tests. A
+stronger test would use overlapping input such as `[[1, 3], [2, 6]]`.
+
+The [gold rewrite](gold/impl-02.md) builds each merged interval as a new list
+and passes the same tests, as both responses do.
+
+ify the input. B's comments are clearer, but neither would serve the
 user better."
 
 The [gold rewrite](gold/impl-02.md) fixes this by appending a new

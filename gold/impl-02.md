@@ -18,5 +18,6 @@ overlaps or touches the last merged one (`<=`), extend that one's end;
 otherwise start a new interval. Each merged interval is a new `[start, end]`
 list, so the caller's input is never modified.
 
-Changed from the original: appends a new `[start, end]` list instead of the
-caller's interval, so extending `merged[-1][1]` can no longer change the input.
+Both original responses already build new lists, so they leave the input
+unchanged too. The first-round review misread them; see the impl-02 example in
+the README.
