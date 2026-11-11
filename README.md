@@ -79,7 +79,12 @@ none was graded wrong (1–2) while passing them.
    answer was right, but it ended with a "new dict" alternative that broke
    "return the same dict" and failed a hidden test.
 3. **Only one model handled the vague request.** Asked to "clean up phone
-   numbers", Qwen pointed out the ambiguity, ### Example: `merge_intervals` (impl-02)
+   numbers", Qwen pointed out the ambiguity, stated its assumptions and said
+   what it returns. GPT-6 silently assumed a format. Neither warned about
+   input like `"abc"`, which both turn into an empty string. It was Qwen's
+   clearest win.
+
+### Example: `merge_intervals` (impl-02)
 
 **Prompt:** merge a list of `[start, end]` pairs given in any order; touching
 intervals like `[1, 3]` and `[3, 5]` must merge; don't modify the input list.
@@ -107,12 +112,6 @@ stronger test would use overlapping input such as `[[1, 3], [2, 6]]`.
 
 The [gold rewrite](gold/impl-02.md) builds each merged interval as a new list
 and passes the same tests, as both responses do.
-
-ify the input. B's comments are clearer, but neither would serve the
-user better."
-
-The [gold rewrite](gold/impl-02.md) fixes this by appending a new
-`[start, end]` list, and passes the same tests.
 
 ### Limitations
 
